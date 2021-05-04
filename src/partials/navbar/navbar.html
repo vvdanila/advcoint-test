@@ -1,0 +1,82 @@
+<div  x-on:scroll.window="scroll()" class="navbar is-transparent is-fixed-top" role="navigation" aria-label="main navigation" :class="{
+        'is-scrolled': scrolled,
+        '': !scrolled,
+        'is-mobile': mobileOpen,
+        '': !mobileOpen
+    }">
+    <div class="navbar-brand">
+        <a class="navbar-item" href="https://cssninja.io">
+            <img class="dark-logo light-image" src="/img/logo/logo-dark.svg" alt="">
+            <img class="light-logo dark-image" src="/img/logo/logo-light.svg" alt="">
+        </a>
+
+        <div class="navbar-item is-hidden-desktop is-hidden-tablet">
+            <div class="ninja-toggle">
+                <input x-on:change="toggleTheme()" id="theme-toggle" type="checkbox">
+                <label for="theme-toggle">
+                    <span class="track">
+                        <span class="track-inner"></span>
+                        <span class="track-knob">
+                            <i class="sun" data-feather="sun"></i>
+                            <i class="moon" data-feather="moon"></i>
+                        </span>
+                    </span>
+                </label>
+            </div>
+        </div>
+
+        <div class="navbar-burger" @click="openMobileMenu()">
+            <div class="menu-toggle">
+                <div class="icon-box-toggle is-navbar" :class="{
+                        'active': mobileOpen,
+                        '': !mobileOpen
+                    }">
+                    <div class="rotate">
+                        <i class="icon-line-top"></i>
+                        <i class="icon-line-center"></i>
+                        <i class="icon-line-bottom"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="navbar-menu" :class="{
+            'is-active': mobileOpen,
+            '': !mobileOpen
+        }">
+        <div class="navbar-end">
+            <div class="navbar-item is-hidden-mobile">
+                <div class="ninja-toggle">
+                    <input x-on:change="toggleTheme()" id="theme-toggle-mobile" type="checkbox">
+                    <label for="theme-toggle-mobile">
+                        <span class="track">
+                            <span class="track-inner"></span>
+                            <span class="track-knob">
+                                <i class="sun" data-feather="sun"></i>
+                                <i class="moon" data-feather="moon"></i>
+                            </span>
+                        </span>
+                    </label>
+                </div>
+            </div>
+            <a class="navbar-item">
+                Sellers
+            </a>
+            <a class="navbar-item">
+                Buyers
+            </a>
+            <a class="navbar-item is-hidden-mobile">
+                |
+            </a>
+            <a class="navbar-item">
+                Login
+            </a>
+            <div class="navbar-item">
+                <a class="button navbar-button">
+                    Sign up
+                </a>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,443 @@
+/* ==========================================================================
+Hero
+========================================================================== */
+
+.main-hero {
+    position: relative;
+    z-index: 11;
+
+    .hero-shape {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 100%;
+        z-index: 0;
+        opacity: 0;
+        pointer-events: none;
+        transform: translateX(100%);
+        transition: all .3s;
+
+        &.is-active {
+            opacity: 1;
+            pointer-events: all;
+            transform: translateX(0);
+        }
+    }
+
+    .hero-caption {
+        position: relative;
+        top: 30px;
+
+        .title {
+            opacity: 0;
+            pointer-events: none;
+            transform: translateY(10px);
+            transition: all .4s;
+            transition-delay: .15s;
+
+            &.is-active {
+                opacity: 1;
+                pointer-events: all;
+                transform: translateY(0);
+            }
+        }
+
+        .subtitle {
+            margin-bottom: 16px;
+            opacity: 0;
+            pointer-events: none;
+            transform: translateY(10px);
+            transition: all .4s;
+            transition-delay: .3s;
+
+            &.is-active {
+                opacity: 1;
+                pointer-events: all;
+                transform: translateY(0);
+            }
+        }
+
+        .hero-image {
+            opacity: 0;
+            transform: translate(40px, 40px);
+            transition: all .4s;
+            transition-delay: .5s;
+
+            &.is-active {
+                opacity: 1;
+                pointer-events: all;
+                transform: translate(0, 0);
+            }
+        }
+
+        .control {
+            position: relative;
+            max-width: 400px;
+            transform: translateY(10px);
+            opacity: 0;
+            transition: all .4s;
+            transition-delay: .4s;
+
+            &.is-active {
+                opacity: 1;
+                pointer-events: all;
+                transform: translateY(0);
+            }
+
+            .input {
+                height: 54px;
+                padding-left: 54px;
+                padding-right: 65px;
+                border: 1px solid darken($fade-grey, 4%);
+                outline: none !important;
+                box-shadow: $light-box-shadow;
+
+                &:focus {
+                    ~ .form-icon {
+                        svg {
+                            stroke: $primary;
+                        }
+                    }
+
+                    ~ button {
+                        box-shadow: $shadow-z3;
+                    }
+                }
+            }
+
+            .form-icon {
+                position: absolute;
+                top: 0;
+                left: 4px;
+                height: 54px;
+                width: 54px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+                svg {
+                    stroke: $muted-grey;
+                    stroke-width: 1.4px;
+                    height: 20px;
+                    width: 20px;
+                    transition: stroke .3s;
+                }
+            }
+
+            button {
+                position: absolute;
+                top: -3px;
+                right: -3px;
+                height: 60px;
+                width: 60px;
+                padding: 0;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                border-radius: 50%;
+                background: $primary;
+                border-color: $primary;
+                box-shadow: $primary-box-shadow;
+                transition: all .3s;
+
+                svg {
+                    stroke: $white;
+                }
+            }
+        }
+    }
+}
+
+/* ==========================================================================
+Sections
+========================================================================== */
+
+.section-title {
+    padding: 40px 0;
+    position: relative;
+
+    .shadow-title {
+        position: absolute;
+        top: 30%;
+        left: 0;
+        right: 0;
+        margin: 0 auto;
+        font-family: $font;
+        font-weight: 700;
+        font-size: 3.8rem;
+        color: black;
+        opacity: .07;
+        transform: translateY(-50%);
+    }
+
+    .subtitle {
+        color: $muted-grey;
+    }
+}
+
+.content-wrapper {
+    margin-top: 60px;
+
+    &.has-margin-bottom {
+        margin-bottom: 60px;
+    }
+}
+
+.section {
+    position: relative;
+
+    &.light-section {
+        background: $light-section;
+    }
+
+    &.feature-section {
+        position: relative;
+
+        .feature-shape {
+            display: block;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 90%;
+            z-index: 0;
+        }
+
+        .side-feature {
+            .title {
+                margin-bottom: 12px;
+            }
+
+            p {
+                font-family: $font;
+                font-size: 1rem;
+                color: lighten($dark-text, 15%);
+            }
+
+            .currencies {
+                display: flex;
+                flex-wrap: wrap;
+                padding: 12px 0;
+
+                .currency {
+                    width: calc(25% - 12px);
+                    background: $white;
+                    border-radius: 8px;
+                    border: 1px solid darken($fade-grey, 3%);
+                    box-shadow: $light-box-shadow;
+                    margin: 6px;
+                    padding: 16px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+
+                    img {
+                        display: block;
+                        max-width: 44px;
+                        margin: 0 auto;
+                    }
+                }
+            }
+
+            .side-image {
+                display: block;
+                position: relative;
+                top: -90px;
+            }
+        }
+    }
+
+    &.has-line-before {
+        &:before {
+            content: '';
+            width: 2px;
+            height: 60px;
+            background: lighten($accent, 16%);
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            margin: 0 auto;
+            transform: rotate(180deg);
+        }
+    }
+
+    &.has-line-after {
+        &:after {
+            content: '';
+            width: 2px;
+            height: 60px;
+            background: lighten($accent, 16%);
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            margin: 0 auto;
+            transform: rotate(180deg);
+        }
+    }
+
+    &.section-1 {
+        z-index: 10;
+    }
+
+    &.section-2 {
+        z-index: 9;
+        min-height: 120vh;
+    }
+
+    &.section-3 {
+        z-index: 8;
+    }
+}
+
+/* ==========================================================================
+Cube Shapes
+========================================================================== */
+
+.cube {
+    display: block;
+    pointer-events: none;
+    position: absolute;
+
+    &.cube-1 {
+        max-width: 420px;
+        bottom: -100px;
+        left: 10%;
+    }
+
+    &.cube-2 {
+        max-width: 300px;
+        top: -43px;
+        right: 5%;
+    }
+
+    &.cube-3 {
+        max-width: 300px;
+        top: 130px;
+        left: 5%;
+    }
+
+    &.cube-4 {
+        max-width: 400px;
+        bottom: 0;
+        right: 5%;
+    }
+}
+
+/* ==========================================================================
+Footer
+========================================================================== */
+
+.footer {
+    position: relative;
+    background: linear-gradient(to top right, $primary, lighten($primary, 12%));
+    padding: 8rem 1.5rem 4rem 1.5rem;
+
+    .map {
+        display: block;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 100%;
+        max-width: 580px;
+    }
+
+    .title {
+        &.is-light {
+            color: $smoke-white;
+        }
+    }
+
+    .footer-logo {
+        display: flex;
+        align-items: center;
+
+        img {
+            display: block;
+            max-width: 50px;
+            margin-right: 12px;
+        }
+
+        span {
+            font-family: $font;
+            font-weight: 700;
+            font-size: 1.3rem;
+            color: $smoke-white;
+        }
+    }
+
+    .footer-logo-text {
+        margin-top: 16px;
+        color: $smoke-white;
+        padding-right: 20px;
+    }
+
+    .socials {
+        display: flex;
+        flex-wrap: wrap;
+        margin-top: 16px;
+
+        .social {
+            height: 40px;
+            width: 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: rgba(0, 0, 0, 0.12);
+            border-radius: 50%;
+            margin: 0 6px;
+            transition: all .3s;
+
+            &:hover {
+                background: $white;
+                box-shadow: $primary-box-shadow;
+
+                i {
+                    color: $primary;
+                }
+            }
+
+            i {
+                color: $smoke-white;
+                transition: color .3s;
+            }
+        }
+    }
+
+    .footer-menu {
+        li {
+            padding: 6px 0;
+            color: $smoke-white;
+
+            a {
+                font-family: $font;
+                font-size: .95rem;
+                color: $smoke-white;
+            }
+        }
+    }
+
+    .copyright {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 8rem;
+
+        a {
+            display: block;
+        }
+
+        .copyright-logo {
+            display: block;
+            width: 100%;
+            max-width: 120px;
+        }
+
+        .copyright-text {
+            font-weight: 500;
+            font-size: .9rem;
+            color: $smoke-white;
+        }
+    }
+}

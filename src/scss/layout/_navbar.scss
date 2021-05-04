@@ -1,0 +1,110 @@
+/* ==========================================================================
+Navbar
+========================================================================== */
+
+.navbar {
+    background: transparent;
+    min-height: 70px;
+    z-index: 40;
+    transition: all .3s;
+
+    &:not(.is-scrolled) {
+        .navbar-brand {
+            .navbar-burger {
+                .menu-toggle i {
+                    background: $smoke-white;
+                }
+            }
+        }
+    }
+
+    &.is-scrolled {
+        background: $white;
+        box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.08);
+
+        .navbar-brand {
+            .navbar-burger {
+                span {
+                    color: $dark-text !important;
+                }
+            }
+        }
+
+        .navbar-item {
+            color: $dark-text;
+        }
+
+        .navbar-menu {
+            .navbar-end {
+                .navbar-item {
+                    .navbar-button {
+                        background: $primary;
+                        border: 1.2px solid $primary;
+                        box-shadow: $primary-box-shadow;
+
+                        &:hover {
+                            background: $primary;
+                            color: $white;
+                            border-color: $primary;
+                            box-shadow: $primary-box-shadow;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .navbar-brand {
+        img {
+            height: 40px;
+            max-height: 40px;
+            width: auto;
+
+            &.light-logo {
+                display: none;
+            }
+
+            &.dark-logo {
+                display: block;
+            }
+        }
+
+        .navbar-burger {
+            span {
+                color: $white;
+            }
+        }
+    }
+
+    .navbar-item {
+        color: $white;
+        transition: all .3s;
+
+        &:hover {
+            color: darken($white, 8%);
+        }
+    }
+
+    .navbar-menu {
+        .navbar-end {
+            .navbar-item {
+                .navbar-button {
+                    height: 44px;
+                    min-width: 130px;
+                    background: transparent;
+                    border: 1.2px solid $white;
+                    color: $white;
+                    line-height: 1;
+                    font-size: .9rem;
+                    font-weight: 500;
+                    transition: all .3s;
+
+                    &:hover {
+                        background: $white;
+                        color: $dark-text;
+                    }
+                }
+            }
+        }
+    }
+}
